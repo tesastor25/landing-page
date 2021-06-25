@@ -15,5 +15,19 @@ pipeline {
                 }
             }
         }
+       stage('Push Image') {
+            steps{
+                script {
+                  sh "docker push dana2cr/landingpagejenkinss:${BUILD_NUMBER}"
+                }
+            }
+        }
+       stage('kubernetes') {
+            steps{
+                script {
+                  sh "kubectl  set image deployment/landing  landing=dana2cr/landingpagejenkinss:${BUILD_NUMBER}"
+                }
+            }
+        }
      }
    }
