@@ -11,7 +11,7 @@ pipeline {
         stage('Building Image') {
             steps{
                 script {
-                  sh "docker build -t dana2cr/landingpagejenkinss:${BUILD_NUMBER}"
+                  sh "docker build -t dana2cr/landingpagejenkinss:${BUILD_NUMBER} ."
                 }
             }
         }
