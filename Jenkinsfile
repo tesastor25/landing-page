@@ -26,7 +26,7 @@ pipeline {
        stage('kubernetes') {
             steps{
                 script {
-                  sh "kubectl  set image deployment/landing  landing=dana2cr/landingpagejenkinss:${BUILD_NUMBER} namespace/production"
+                  sh "kubectl  set image deployment/landing  landing=dana2cr/landingpagejenkinss:${BUILD_NUMBER} -n production"
                 }
             }
         }
