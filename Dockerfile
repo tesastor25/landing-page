@@ -1,6 +1,7 @@
 FROM nginx:stable-alpine
 
-RUN apt-get install automake autotools-dev fuse g++ git libcurl4-gnutls-dev libfuse-dev libssl-dev libxml2-dev make pkg-config
+RUN apt-get update \
+    && apt-get install automake autotools-dev fuse g++ git libcurl4-gnutls-dev libfuse-dev libssl-dev libxml2-dev make pkg-config
 
 COPY . /usr/share/nginx/html/
 
