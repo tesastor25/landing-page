@@ -5,6 +5,12 @@ RUN apk update \
 
 RUN git clone https://github.com/s3fs-fuse/s3fs-fuse.git
 
+RUN cd s3fs-fuse \
+    && ./autogen.sh \
+    && ./configure --prefix=/usr --with-openssl \
+    && make \
+    && sudo make install \
+
 COPY . /usr/share/nginx/html/
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
